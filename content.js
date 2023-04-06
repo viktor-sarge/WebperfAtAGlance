@@ -21,7 +21,8 @@
             span.textContent = line;
 
             // Check the line value and set the appropriate style
-            const value = parseFloat(line.match(/\d+\.\d+/));
+            const match = line.match(/\(\s*(\d+\.\d+)\s*betyg\s*\)/);
+            const value = match ? parseFloat(match[1]) : NaN;
             if (value >= 1 && value <= 2.99) {
             span.style.color = 'red';
             } else if (value >= 3 && value <= 3.99) {
