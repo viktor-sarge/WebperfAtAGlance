@@ -1,3 +1,23 @@
+function mergeNodesWithParenthesisContent(arr) {
+    for (let i = 0, merged = false; i < arr.length; i++) {
+        if (merged) {
+            merged = false;
+            continue;
+        }
+        const current = arr[i];
+        const next = arr[i + 1];
+
+        if (next && /^\(\s*\d+\.\d+\s*betyg\s*\)$/.test(next)) {
+            arr[i] = current + next;
+            arr.splice(i + 1, 1);
+            merged = true;
+        }
+    }
+
+    return arr;
+}
+
+
 (function () {
     // Get all the paragraphs within the entry-excerpt div
     const paragraphs = document.querySelectorAll('.entry-excerpt');
@@ -5,7 +25,9 @@
     // Loop through each paragraph
     paragraphs.forEach(function (paragraph) {
         // Get the inner text of the paragraph and split it by line break
-        const lines = paragraph.innerText.split('\n');
+        let lines = paragraph.innerText.split('\n');
+        lines = mergeNodesWithParenthesisContent(lines);
+        console.log(lines);
 
         // Create a new array to hold the new lines with span tags
         const newLines = [];
