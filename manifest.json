@@ -1,0 +1,12 @@
+{
+	"manifest_version": 2,
+	"name": "Webperf at a glance",
+	"version": "1.0",
+	"description": "Color codes detail views of pages on Webperf.se to that low grades are red and mid range grades are dark yellow",
+	"content_scripts": [
+		{
+			"matches": ["https://webperf.se/site/*/"],
+			"js": ["content.js"]
+		}
+	]
+}
