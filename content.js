@@ -1,6 +1,6 @@
 (function () {
     // Get all the paragraphs within the entry-excerpt div
-    const paragraphs = document.querySelectorAll('.entry-excerpt p');
+    const paragraphs = document.querySelectorAll('.entry-excerpt');
 
     // Loop through each paragraph
     paragraphs.forEach(function (paragraph) {
@@ -24,9 +24,9 @@
             const match = line.match(/\(\s*(\d+\.\d+)\s*betyg\s*\)/);
             const value = match ? parseFloat(match[1]) : NaN;
             if (value >= 1 && value <= 2.99) {
-            span.style.color = 'red';
+                span.style.color = 'red';
             } else if (value >= 3 && value <= 3.99) {
-            span.style.color = 'darkgoldenrod';
+                span.style.color = 'darkgoldenrod';
             }
 
             // Add the span element to the new lines array
