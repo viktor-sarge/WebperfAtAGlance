@@ -27,7 +27,6 @@ function mergeNodesWithParenthesisContent(arr) {
         // Get the inner text of the paragraph and split it by line break
         let lines = paragraph.innerText.split('\n');
         lines = mergeNodesWithParenthesisContent(lines);
-        console.log(lines);
 
         // Create a new array to hold the new lines with span tags
         const newLines = [];
