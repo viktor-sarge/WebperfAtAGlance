@@ -33,13 +33,14 @@ function mergeNodesWithParenthesisContent(arr) {
 
         // Loop through each line
         lines.forEach(function (line) {
+            const match = line.match(/\(\s*(\d+\.\d+)\s*betyg\s*\)/);
+
             // If the line has content
-            if (line.trim().length > 0) {
+            if (line.trim().length > 0 && match) {
                 // Create a new span element
                 const span = document.createElement('span');
 
                 // Check the line value and set the appropriate style
-                const match = line.match(/\(\s*(\d+\.\d+)\s*betyg\s*\)/);
                 const value = match ? parseFloat(match[1]) : NaN;
                 if (value >= 1 && value <= 2.99) {
                     span.style.color = 'red';
